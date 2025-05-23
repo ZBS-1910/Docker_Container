@@ -1,0 +1,13 @@
+FROM node
+
+WORKDIR /developer/node/my-server
+
+COPY . .
+
+RUN npm ci
+
+CMD ["npm", "index"]
+
+
+# docker build -t myserver .
+# docker run -it --init --publish 30002:3000 myserver :latest

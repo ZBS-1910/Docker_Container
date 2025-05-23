@@ -1,0 +1,19 @@
+FROM node
+
+# Use lowercase and consistent naming
+WORKDIR /developers/nodejs/node-bind-mount-project
+
+# Copy package.json and lock file first (for caching)
+COPY package*.json ./
+
+# Install exact dependencies from lock file
+RUN npm ci
+
+# Copy the rest of the app
+COPY . .
+
+# Set the default port (for reference)
+ENV PORT=3000
+
+# Run the app
+CMD ["npm", "start"]

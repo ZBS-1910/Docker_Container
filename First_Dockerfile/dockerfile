@@ -1,0 +1,7 @@
+From node
+
+WORKDIR /developer/nodeJS
+
+COPY . .
+
+CMD ["node", "-e", "console.log(150)"]
